@@ -27,7 +27,9 @@ module Portfolio =
     let excessReturns (pfRets: seq<float>) bmkRets =
         Seq.zip pfRets bmkRets |> Seq.map activeReturn
     
-    let beta ra rb = cov ra rb false / var ra false 
+    
+    //The formula for calculating beta is the covariance of the return of an asset and the return of the benchmark divided by the variance of the return of the benchmark over a certain period.
+    let beta ra rb = cov ra rb false / var rb false 
     
     
     let inline private divMeanByStd xs = 
